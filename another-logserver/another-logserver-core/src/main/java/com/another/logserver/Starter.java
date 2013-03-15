@@ -3,6 +3,8 @@ package com.another.logserver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.another.logserver.endpoints.imp.RESTEndPointImpl;
+
 /**
  *
  * @author <a href="mailto:paul.manjarres@gmail.com">Jean Paul Manjarres
@@ -23,6 +25,11 @@ public class Starter {
 		LOGGER.info("Starting Another Log server ...");
 
 		// Initialize components
+
+
+		RESTEndPointImpl impl = new RESTEndPointImpl();
+
+		impl.start();
 
 
 
