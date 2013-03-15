@@ -29,7 +29,7 @@
 		<logback-version>1.0.9</logback-version>
 		<!-- <postgresql-jdbc-version>9.1-901-1.jdbc4</postgresql-jdbc-version> -->
 		<!-- <tomcat-jdbc-version>7.0.35</tomcat-jdbc-version> -->
-		<!-- <junit-version>4.11</junit-version> -->
+		<testng-version>6.8</testng-version>
 		<google-guava-version>14.0</google-guava-version>
 		<!-- <jackson-mapper-version>1.9.11</jackson-mapper-version> -->
 	</properties>
@@ -59,6 +59,11 @@
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
 			<version>${google-guava-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>${testng-version}</version>
 		</dependency>
 	</dependencies>
 	<name>Another Log Server</name>
