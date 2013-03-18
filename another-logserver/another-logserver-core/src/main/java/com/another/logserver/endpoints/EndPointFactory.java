@@ -36,6 +36,8 @@ public class EndPointFactory {
 	 */
 	public static IEndPoint create(final EndPointDefinition endPoint) {
 
+		LOGGER.debug("Creating a new EndPoint [{}]", endPoint);
+
 		IEndPoint newEndPoint = null;
 
 		switch (endPoint) {

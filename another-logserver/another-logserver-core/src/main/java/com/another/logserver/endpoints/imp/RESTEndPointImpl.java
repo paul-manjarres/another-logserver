@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.vertx.java.core.Handler;
 import org.vertx.java.core.Vertx;
+import org.vertx.java.core.buffer.Buffer;
 import org.vertx.java.core.http.HttpServer;
 import org.vertx.java.core.http.HttpServerRequest;
 
@@ -60,6 +61,17 @@ public class RESTEndPointImpl implements IEndPoint {
 				req.response
 						.end("<html><head></head><body> <h1> VERTX </h1> </body><html>",
 								"UTF-8");
+
+				req.bodyHandler(new Handler<Buffer>() {
+
+					@Override
+					public void handle(Buffer event) {
+						LOGGER.info("Body received: {}",new String(event.getBytes()));
+					}
+				});
+
+
+
 
 			}
 		});

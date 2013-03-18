@@ -37,6 +37,8 @@
 
 	<modules>
 		<module>another-logserver-core</module>
+		<module>another-logserver-appender-logback</module>
+		<module>another-logserver-common</module>
 	</modules>
 
 	<dependencies>
@@ -45,16 +47,7 @@
 			<artifactId>slf4j-api</artifactId>
 			<version>${slf4j-version}</version>
 		</dependency>
-		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-classic</artifactId>
-			<version>${logback-version}</version>
-		</dependency>
-		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-core</artifactId>
-			<version>${logback-version}</version>
-		</dependency>
+		
 		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
