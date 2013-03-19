@@ -37,7 +37,16 @@ public class RESTEndPointImpl implements IEndPoint {
 	private String listenAddress = "127.0.0.1";
 
 	/** Port used to listen requests */
-	private int port = 8080;
+	private Integer port = 8080;
+
+	/** Path used to listen requests */
+	private String path;
+
+	/** */
+	private String user;
+
+	/** */
+	private String password;
 
 	/*
 	 * (non-Javadoc)
@@ -66,12 +75,10 @@ public class RESTEndPointImpl implements IEndPoint {
 
 					@Override
 					public void handle(Buffer event) {
-						LOGGER.info("Body received: {}",new String(event.getBytes()));
+						LOGGER.info("Body received: {}",
+								new String(event.getBytes()));
 					}
 				});
-
-
-
 
 			}
 		});
@@ -99,6 +106,54 @@ public class RESTEndPointImpl implements IEndPoint {
 			httpServer.close();
 			started = false;
 		}
+	}
+
+	public void setListenAddress(String listenAddress) {
+		this.listenAddress = listenAddress;
+	}
+
+	public void setPort(int port) {
+		this.port = port;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
+	}
+
+	public boolean isStarted() {
+		return started;
+	}
+
+	public void setStarted(boolean started) {
+		this.started = started;
+	}
+
+	public String getUser() {
+		return user;
+	}
+
+	public void setUser(String user) {
+		this.user = user;
+	}
+
+	public String getListenAddress() {
+		return listenAddress;
+	}
+
+	public int getPort() {
+		return port;
+	}
+
+	public String getPath() {
+		return path;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 }

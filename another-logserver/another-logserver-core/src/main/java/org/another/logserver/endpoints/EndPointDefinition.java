@@ -10,12 +10,27 @@ package org.another.logserver.endpoints;
  */
 public enum EndPointDefinition {
 
-	REST_ENDPOINT,
+	REST_ENDPOINT("rest"),
 
-	SOAP_ENDPOINT,
+	SOAP_ENDPOINT("soap"),
 
-	TCP_ENDPOINT,
+	TCP_ENDPOINT("tcp"),
 
-	SYSLOG_ENDPOINT
+	SYSLOG_ENDPOINT("syslog");
+
+	/** Defines a short identificator for the enum */
+	private String shortDefinition;
+
+	/**
+	 *
+	 * @param shortDefintion
+	 */
+	private EndPointDefinition(String shortDefintion) {
+		this.shortDefinition = shortDefintion;
+	}
+
+	public String getShortDefinition() {
+		return shortDefinition;
+	}
 
 }

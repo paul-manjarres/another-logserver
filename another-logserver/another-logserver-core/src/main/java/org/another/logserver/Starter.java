@@ -16,14 +16,13 @@
 
 package org.another.logserver;
 
-import org.another.logserver.endpoints.imp.RESTEndPointImpl;
+import org.another.logserver.config.Configurator;
+import org.another.logserver.endpoints.api.IEndPoint;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import com.hazelcast.config.ClasspathXmlConfig;
 
 
 /**
@@ -47,15 +46,32 @@ public class Starter {
 
 		// Initialize components
 
-		ApplicationContext springContext = new ClassPathXmlApplicationContext("spring.xml");
+		LOGGER.debug("Starting Spring context ...");
+		final ApplicationContext springContext = new ClassPathXmlApplicationContext("spring.xml");
 
-		((AbstractApplicationContext)springContext).registerShutdownHook();
-		
 		LOGGER.info("Spring intilization: {}",springContext.getStartupDate());
 
 
-		RESTEndPointImpl impl = new RESTEndPointImpl();
-		impl.start();
+
+
+		Runtime.getRuntime().addShutdownHook(new Thread(){
+
+			@Override
+			public void run() {
+				super.run();
+				LOGGER.debug("Running Shutdown Hook");
+
+				Configurator conf = springContext.getBean("configurator", Configurator.class);
+				for(IEndPoint ep : conf.getConfiguredEndPoints().values()){
+					ep.stop();
+				}
+
+			}
+
+		});
+
+
+		((AbstractApplicationContext)springContext).registerShutdownHook();
 
 
 
