@@ -1,5 +1,6 @@
-package com.another.logserver.endpoints.imp;
+package org.another.logserver.endpoints.imp;
 
+import org.another.logserver.endpoints.api.IEndPoint;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.vertx.java.core.Handler;
@@ -8,7 +9,6 @@ import org.vertx.java.core.buffer.Buffer;
 import org.vertx.java.core.http.HttpServer;
 import org.vertx.java.core.http.HttpServerRequest;
 
-import com.another.logserver.endpoints.api.IEndPoint;
 import com.google.common.base.Preconditions;
 
 /**

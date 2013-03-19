@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.another.logserver.appender;
+package org.another.logserver.appender;
 
 import ch.qos.logback.core.AppenderBase;
 

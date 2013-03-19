@@ -1,4 +1,4 @@
-package com.another.logserver.endpoints;
+package org.another.logserver.endpoints;
 
 /**
  *

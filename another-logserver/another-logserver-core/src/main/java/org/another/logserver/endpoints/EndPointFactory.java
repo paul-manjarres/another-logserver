@@ -1,10 +1,10 @@
-package com.another.logserver.endpoints;
+package org.another.logserver.endpoints;
 
+import org.another.logserver.endpoints.api.IEndPoint;
+import org.another.logserver.endpoints.imp.RESTEndPointImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.another.logserver.endpoints.api.IEndPoint;
-import com.another.logserver.endpoints.imp.RESTEndPointImpl;
 
 /**
  * Factory used to create different EndPoint implementations.

@@ -3,7 +3,7 @@
 
 	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
 		<encoder>
-			<pattern>[%d{HH:mm:ss.SSS}][%-5p][%t][%c{36}:%L]|%m%n
+			<pattern>[%d{HH:mm:ss.SSS}][%-5p][%t][%c:%L]|%m%n
 			</pattern>
 		</encoder>
 	</appender>
@@ -15,7 +15,7 @@
 		class="ch.qos.logback.core.rolling.RollingFileAppender">
 		<File>logs/another-logserver.log</File>
 		<encoder>
-			<pattern>[%d{HH:mm:ss.SSS}][%-5p][%t][%c{36}:%L]|%m%n</pattern>
+			<pattern>[%d{HH:mm:ss.SSS}][%-5p][%t][%c:%L]|%m%n</pattern>
 		</encoder>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<fileNamePattern>logs/another-logserver.%d{yyyy-MM-dd}.%i.log
@@ -50,7 +50,7 @@
 
 	<!-- Logger configuration. -->
 	<logger name="com.another" level="TRACE" />
-	<logger name="org.springframework" level="ERROR" />
+	<logger name="org.springframework" level="INFO" />
 	<logger name="org.hibernate" level="ERROR" />
 
 

@@ -14,8 +14,9 @@
  * the License.
  */
 
-package com.another.logserver.appender;
+package org.another.logserver.appender;
 
+import org.another.logserver.common.LogEventVO;
 import org.apache.commons.lang3.StringUtils;
 import org.jboss.resteasy.client.ClientRequest;
 
@@ -23,7 +24,6 @@ import ch.qos.logback.classic.spi.LoggingEvent;
 import ch.qos.logback.core.UnsynchronizedAppenderBase;
 import ch.qos.logback.core.encoder.Encoder;
 
-import com.another.logserver.common.LogEventVO;
 import com.google.gson.Gson;
 
 /**

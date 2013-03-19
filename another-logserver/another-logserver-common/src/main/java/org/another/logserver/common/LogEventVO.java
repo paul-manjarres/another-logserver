@@ -13,7 +13,7 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.another.logserver.common;
+package org.another.logserver.common;
 
 /**
  * @author <a href="mailto:paul.manjarres@gmail.com">Jean Paul Manjarres

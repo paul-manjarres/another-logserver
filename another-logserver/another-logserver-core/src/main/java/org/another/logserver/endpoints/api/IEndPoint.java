@@ -1,4 +1,4 @@
-package com.another.logserver.endpoints.api;
+package org.another.logserver.endpoints.api;
 
 /**
  * Interface that defines the behaviour of an EndPoint

@@ -1,4 +1,4 @@
-package com.another.logserver;
+package org.another.logserver;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
