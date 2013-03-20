@@ -1,4 +1,4 @@
-package org.another.logserver.common;
+package org.another.logserver.common.utils;
 
 import java.util.Arrays;
 

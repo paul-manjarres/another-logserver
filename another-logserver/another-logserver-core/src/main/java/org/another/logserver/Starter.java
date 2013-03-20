@@ -24,7 +24,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-
 /**
  *
  * @author <a href="mailto:paul.manjarres@gmail.com">Jean Paul Manjarres
@@ -49,12 +48,9 @@ public class Starter {
 		LOGGER.debug("Starting Spring context ...");
 		final ApplicationContext springContext = new ClassPathXmlApplicationContext("spring.xml");
 
-		LOGGER.info("Spring intilization: {}",springContext.getStartupDate());
+		LOGGER.info("Spring intilization: {}", springContext.getStartupDate());
 
-
-
-
-		Runtime.getRuntime().addShutdownHook(new Thread(){
+		Runtime.getRuntime().addShutdownHook(new Thread() {
 
 			@Override
 			public void run() {
@@ -62,7 +58,7 @@ public class Starter {
 				LOGGER.debug("Running Shutdown Hook");
 
 				Configurator conf = springContext.getBean("configurator", Configurator.class);
-				for(IEndPoint ep : conf.getConfiguredEndPoints().values()){
+				for (IEndPoint ep : conf.getConfiguredEndPoints().values()) {
 					ep.stop();
 				}
 
@@ -70,10 +66,7 @@ public class Starter {
 
 		});
 
-
-		((AbstractApplicationContext)springContext).registerShutdownHook();
-
-
+		((AbstractApplicationContext) springContext).registerShutdownHook();
 
 		LOGGER.debug("Entering wait loop");
 		try {
