@@ -50,7 +50,7 @@
 
 	<!-- Logger configuration. -->
 	<logger name="com.another" level="TRACE" />
-	<logger name="org.springframework" level="INFO" />
+	<logger name="org.springframework" level="WARN" />
 	<logger name="org.hibernate" level="ERROR" />
 
 

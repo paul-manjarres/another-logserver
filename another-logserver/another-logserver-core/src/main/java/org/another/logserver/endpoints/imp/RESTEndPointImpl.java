@@ -1,3 +1,18 @@
+/*
+ * Copyright (C) 2013 Jean Paul Manjarres Correal
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
 package org.another.logserver.endpoints.imp;
 
 import org.another.logserver.endpoints.api.IEndPoint;
@@ -22,8 +37,7 @@ import com.google.common.base.Preconditions;
 public class RESTEndPointImpl implements IEndPoint {
 
 	/** Class logger */
-	private static final Logger LOGGER = LoggerFactory
-			.getLogger(RESTEndPointImpl.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(RESTEndPointImpl.class);
 
 	/** The {@link HttpServer} Vert.x based */
 	private HttpServer httpServer = null;
@@ -57,7 +71,7 @@ public class RESTEndPointImpl implements IEndPoint {
 	public synchronized void start() {
 
 		Vertx vertx = Vertx.newVertx();
-		HttpServer httpServer = vertx.createHttpServer();
+		httpServer = vertx.createHttpServer();
 		httpServer.requestHandler(new Handler<HttpServerRequest>() {
 
 			@Override
@@ -67,16 +81,13 @@ public class RESTEndPointImpl implements IEndPoint {
 				LOGGER.info("Headers: {}", req.headers().values());
 
 				req.response.putHeader("Content-type", "text/html");
-				req.response
-						.end("<html><head></head><body> <h1> VERTX </h1> </body><html>",
-								"UTF-8");
+				req.response.end("<html><head></head><body> <h1> VERTX </h1> </body><html>", "UTF-8");
 
 				req.bodyHandler(new Handler<Buffer>() {
 
 					@Override
 					public void handle(Buffer event) {
-						LOGGER.info("Body received: {}",
-								new String(event.getBytes()));
+						LOGGER.info("Body received: {}", new String(event.getBytes()));
 					}
 				});
 
@@ -108,50 +119,92 @@ public class RESTEndPointImpl implements IEndPoint {
 		}
 	}
 
-	public void setListenAddress(String listenAddress) {
-		this.listenAddress = listenAddress;
-	}
-
-	public void setPort(int port) {
-		this.port = port;
-	}
-
-	public void setPath(String path) {
-		this.path = path;
-	}
-
+	/**
+	 * @return the started
+	 */
 	public boolean isStarted() {
 		return started;
 	}
 
+	/**
+	 * @param started
+	 *            the started to set
+	 */
 	public void setStarted(boolean started) {
 		this.started = started;
 	}
 
-	public String getUser() {
-		return user;
-	}
-
-	public void setUser(String user) {
-		this.user = user;
-	}
-
+	/**
+	 * @return the listenAddress
+	 */
 	public String getListenAddress() {
 		return listenAddress;
 	}
 
-	public int getPort() {
+	/**
+	 * @param listenAddress
+	 *            the listenAddress to set
+	 */
+	public void setListenAddress(String listenAddress) {
+		this.listenAddress = listenAddress;
+	}
+
+	/**
+	 * @return the port
+	 */
+	public Integer getPort() {
 		return port;
 	}
 
+	/**
+	 * @param port
+	 *            the port to set
+	 */
+	public void setPort(Integer port) {
+		this.port = port;
+	}
+
+	/**
+	 * @return the path
+	 */
 	public String getPath() {
 		return path;
 	}
 
+	/**
+	 * @param path
+	 *            the path to set
+	 */
+	public void setPath(String path) {
+		this.path = path;
+	}
+
+	/**
+	 * @return the user
+	 */
+	public String getUser() {
+		return user;
+	}
+
+	/**
+	 * @param user
+	 *            the user to set
+	 */
+	public void setUser(String user) {
+		this.user = user;
+	}
+
+	/**
+	 * @return the password
+	 */
 	public String getPassword() {
 		return password;
 	}
 
+	/**
+	 * @param password
+	 *            the password to set
+	 */
 	public void setPassword(String password) {
 		this.password = password;
 	}

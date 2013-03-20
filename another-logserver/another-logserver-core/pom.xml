@@ -54,5 +54,10 @@
 			<artifactId>log4j-over-slf4j</artifactId>
 			<version>1.7.3</version>
 		</dependency>
+		<dependency>
+			<groupId>com.another</groupId>
+			<artifactId>another-logserver-common</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 </project>
